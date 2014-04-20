@@ -1,10 +1,18 @@
-## Put comments here that give an overall description of what your
-## functions do
 
-## Write a short comment describing this function
+# returns matrix object that stores its inverse
 
-makeCacheMatrix <- function(x = matrix()) {
-
+makeCacheMatrix <- function(mtx = matrix()) {
+    cachedInverse <- NULL
+    set <- function(y) {
+        mtx <<- y
+        cachedInverse <<- NULL
+    }
+    get <- function() mtx
+    setInverse <- function(inv) cachedInverse <<- inv
+    getInverse <- function() cachedInverse
+    list(set = set, get = get,
+         setInverse = setInverse,
+         getInverse = getInverse)
 }
 
 
