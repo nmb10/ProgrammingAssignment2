@@ -36,3 +36,18 @@ test_that("Getting inverse should return cached inverse", {
     cm$setInverse(test_matrix_inverse)
     expect_that(cm$getInverse(), equals(test_matrix_inverse));
 });
+
+
+context("cacheSolveTest");
+
+test_that("Returns inverse from cached matrix", {
+    cm <- makeCacheMatrix(mtx=test_matrix)
+    cm$setInverse(test_matrix_inverse)
+    expect_that(cacheSolve(cm), equals(test_matrix_inverse))
+});
+
+test_that("Computes and caches inverse", {
+    cm <- makeCacheMatrix(mtx=test_matrix)
+    expect_that(cm$getInverse(), equals(NULL))
+    expect_that(cacheSolve(cm), equals(test_matrix_inverse))
+});
