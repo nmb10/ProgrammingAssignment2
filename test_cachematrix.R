@@ -2,7 +2,7 @@
 # uses testthat framework
 # running tests:
 #   load R
-#   > require("test_that")
+#   > require("testthat")
 #   > test_file("test_cachematrix.R")
 
 source("cachematrix.R");
